@@ -1,0 +1,19 @@
+//test1
+int a;
+/*test2*/
+
+
+/*test3
+testing
+testing
+*/
+
+/*/*test4*/*/
+
+/*test5*/ int a = 1;
+
+dontPrint // test6 /*test7
+testing*/
+
+/*//test8*/
+
