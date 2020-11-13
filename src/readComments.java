@@ -35,22 +35,25 @@ public class readComments {
      * @return the words written before or after the commentSign as specified in after flag
      */
     private static String getComment(String line, String commentSign, boolean after){
+        System.out.println("new");
        int index = line.indexOf(commentSign);
        String beforeComment = line.substring(0, index +2);
        String afterComment = line.substring(index, line.length());
        if (after){
-           return indentBy(afterComment, beforeComment);
+//           return indentBy(afterComment, beforeComment);
+           return afterComment;
        }
        return beforeComment;
     }
 
     public static void main(String[] args) {
         try {
-            if (args.length != 1){
-                System.out.println("Wrong number of arguments");
-                System.exit(0);
-            }
-            File path = new File(args[0]);
+//            if (args.length != 1){
+//                System.out.println("Wrong number of arguments");
+//                System.exit(0);
+//            }
+//            File path = new File(args[0]);
+            File path = new File("C:/Users/nadav ashkenazi/OneDrive - Technion/Technion/semester_6/OOP/hw/hw0/test.txt");
             BufferedReader reader = new BufferedReader(new FileReader(path));
             String line = reader.readLine();
             while (line != null) {
