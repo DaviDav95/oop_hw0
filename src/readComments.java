@@ -13,21 +13,6 @@ import java.io.FileNotFoundException;
 public class readComments {
 
     /**
-     * @param toIndent - string you want indented
-     * @param indentBy - sting whose length you want to indent by
-     * @return spaces and tab the length of the indentBy sting concatenated with toIntend string
-     */
-    private static String indentBy(String toIndent, String indentBy){
-        for (int i = 0; i < indentBy.length() - 2; i++){
-            if (indentBy.charAt(i) == '\t') {
-                toIndent = '\t' + toIndent;
-            }
-            else toIndent = ' ' + toIndent;
-        }
-        return toIndent;
-    }
-
-    /**
      * 
      * @param line - line of codes under inspection
      * @param commentSign - comment syntax searched in the line
@@ -40,7 +25,6 @@ public class readComments {
        String beforeComment = line.substring(0, index +2);
        String afterComment = line.substring(index, line.length());
        if (after){
-//           return indentBy(afterComment, beforeComment);
            return afterComment;
        }
        return beforeComment;
@@ -48,12 +32,11 @@ public class readComments {
 
     public static void main(String[] args) {
         try {
-//            if (args.length != 1){
-//                System.out.println("Wrong number of arguments");
-//                System.exit(0);
-//            }
-//            File path = new File(args[0]);
-            File path = new File("C:/Users/nadav ashkenazi/OneDrive - Technion/Technion/semester_6/OOP/hw/hw0/test.txt");
+            if (args.length != 1){
+                System.out.println("Wrong number of arguments");
+                System.exit(0);
+            }
+            File path = new File(args[0]);
             BufferedReader reader = new BufferedReader(new FileReader(path));
             String line = reader.readLine();
             while (line != null) {
