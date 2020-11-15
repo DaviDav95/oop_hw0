@@ -6,16 +6,16 @@ package homework0;
 public class Ball {
 	private double getVolume;
 
-    /**
-     * @requires volume > 0
-     * @modifies this
-     * @effects Creates and initializes new Ball object with the specified
-     *  		volume.
-     */
+	/**
+	 * @requires volume > 0
+	 * @modifies this
+	 * @effects Creates and initializes new Ball object with the specified
+	 *  		volume.
+	 */
 
-    public Ball(double volume) {
+	public Ball(double volume) {
 		setVolume(volume);
-    }
+	}
 
 
 	/**
@@ -26,14 +26,14 @@ public class Ball {
 	public void setVolume(double volume) {
 		if(volume>0) this.getVolume = volume;
 		else return;
-		
+
 	}
 
 
-    /**
-     * @return the volume of the Ball.
-     */
-    public double getVolume() {
+	/**
+	 * @return the volume of the Ball.
+	 */
+	public double getVolume() {
 		return this.getVolume;
-    }
+	}
 }

@@ -4,16 +4,19 @@ import java.util.ArrayList;
  * A container that can be used to contain Balls. A given homework0.Ball may only
  * appear in a homework0.BallContainer once. Each container has a size, and can only contain balls up to the size of the container.
  */
-public class BallContainer {
+public class BallContainer2 {
     private double containerSize;
-    private ArrayList<Ball> myBallsList;
+    private double  containerCurrentVolume;
+    private ArrayList<homework0.Ball> myBallsList;
+    private final int EMPTY = 0;
     /**
      * @requires containerSize > 0
      * @effects Creates a new homework0.BallContainer with the size of containerSize.
      */
-    public BallContainer(double containerSize) {
+    public BallContainer2(double containerSize) {
         if(containerSize>0) {
             this.containerSize = containerSize;
+            this.containerCurrentVolume = EMPTY;
             this.myBallsList = new ArrayList<Ball>();
         }
     }
@@ -44,6 +47,7 @@ public class BallContainer {
                 System.out.println("You try to add illegal argument");
                 return false;
             }
+            containerCurrentVolume += ball.getVolume();
             return true;
         }
         else return false;
@@ -66,6 +70,7 @@ public class BallContainer {
                 System.out.println("Can not remove NULL element");
                 return false;
             }
+            containerCurrentVolume -= ball.getVolume();
             return true;
         }
         else return false;
@@ -77,11 +82,7 @@ public class BallContainer {
      * 		   total volume of all Balls in the container.
      */
     public double getVolume() {
-        double vol=0 ;
-        for(Ball ball : myBallsList){
-            vol += ball.getVolume();
-        }
-        return vol;
+        return containerCurrentVolume;
     }
 
     /**
@@ -104,6 +105,7 @@ public class BallContainer {
      */
     public void clear() {
         myBallsList.clear();
+        containerCurrentVolume=EMPTY;
     }
 
     /**
